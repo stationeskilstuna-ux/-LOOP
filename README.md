@@ -1,184 +1,174 @@
-# -LOOP
-$LOOP — You buy. You hold. You loop. Repeat forever.
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$LOOP — Everything is a Loop</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLOOP</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      overflow-x: hidden;
-      background: black;
-      color: white;
-      text-align: center;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 
-    /* Animated background */
-    body::before {
-      content: "";
-      position: fixed;
-      width: 300%;
-      height: 300%;
-      background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffcc);
-      animation: bgLoop 10s infinite linear;
-      z-index: -1;
-    }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    @keyframes bgLoop {
-      0% { transform: translate(0,0); }
-      50% { transform: translate(-50%, -50%); }
-      100% { transform: translate(0,0); }
-    }
+body {
+    background: radial-gradient(circle at top, #0a0a0f, #000);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    overflow-x: hidden;
+}
 
-    header {
-      padding: 60px 20px;
-    }
+/* Glow background */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,0,255,0.08), transparent 60%);
+    animation: pulse 6s infinite;
+    z-index: -1;
+}
 
-    /* Glitch effect */
-    h1 {
-      font-size: 4rem;
-      position: relative;
-      animation: glitch 1s infinite;
-    }
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.3); opacity: 0.2; }
+    100% { transform: scale(1); opacity: 0.6; }
+}
 
-    @keyframes glitch {
-      0% { text-shadow: 2px 2px #ff00cc, -2px -2px #00ffcc; }
-      50% { text-shadow: -2px 2px #ff00cc, 2px -2px #00ffcc; }
-      100% { text-shadow: 2px -2px #ff00cc, -2px 2px #00ffcc; }
-    }
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-    .btn {
-      margin-top: 20px;
-      padding: 15px 35px;
-      background: white;
-      color: black;
-      border-radius: 30px;
-      font-weight: bold;
-      text-decoration: none;
-      display: inline-block;
-      transition: 0.3s;
-    }
+    text-align: center;
+}
 
-    .btn:hover {
-      background: black;
-      color: white;
-      border: 2px solid white;
-    }
+.logo {
+    font-size: 4rem;
+    letter-spacing: 4px;
+    color: #ff00ff;
+    text-shadow: 0 0 20px #ff00ff;
+}
 
-    /* Spinner */
-    .loop-circle {
-      margin: 40px auto;
-      width: 150px;
-      height: 150px;
-      border: 8px solid white;
-      border-top: 8px solid transparent;
-      border-radius: 50%;
-      animation: spin 1.5s linear infinite;
-    }
+.tagline {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #aaa;
+}
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
+/* BUTTON */
+.btn {
+    margin-top: 40px;
+    padding: 15px 40px;
+    border: 1px solid #ff00ff;
+    background: transparent;
+    color: #ff00ff;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
 
-    /* Fake price ticker */
-    .ticker {
-      margin-top: 30px;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
+.btn:hover {
+    background: #ff00ff;
+    color: black;
+    box-shadow: 0 0 20px #ff00ff;
+}
 
-    /* Scrolling text */
-    .marquee {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-      background: rgba(0,0,0,0.7);
-      padding: 10px 0;
-      font-weight: bold;
-    }
+/* SECTION */
+.section {
+    padding: 100px 20px;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
 
-    .marquee span {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scroll 10s linear infinite;
-    }
+.section h2 {
+    margin-bottom: 20px;
+    color: #ff00ff;
+}
 
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
+.section p {
+    color: #ccc;
+    line-height: 1.6;
+}
 
-    section {
-      margin-top: 50px;
-      padding: 0 20px;
-    }
+/* FEED */
+.feed {
+    margin-top: 40px;
+}
 
-    footer {
-      margin-top: 80px;
-      padding: 20px;
-      opacity: 0.7;
-    }
-  </style>
+.feed-item {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,0,255,0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.feed-item:hover {
+    box-shadow: 0 0 15px #ff00ff50;
+}
+
+/* FOOTER */
+.footer {
+    padding: 40px;
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>$LOOP</h1>
-    <p>Everything loops. You can't escape.</p>
-    <a href="#" class="btn" onclick="location.reload()">ENTER LOOP</a>
-    <br>
-    <a href="#" class="btn">BUY $LOOP</a>
-  </header>
+<div class="hero">
+    <div class="logo">SLOOP</div>
+    <div class="tagline">Enter the loop. Stay because it feels right.</div>
+    <button class="btn" onclick="enterLoop()">Enter</button>
+</div>
 
-  <div class="loop-circle"></div>
+<div class="section">
+    <h2>No rush. No noise.</h2>
+    <p>
+        We are not launching anything.
+        <br><br>
+        We are not pumping anything.
+        <br><br>
+        We are building something people choose to stay in.
+    </p>
+</div>
 
-  <div class="ticker" id="price">$LOOP Price: $0.0001</div>
+<div class="section">
+    <h2>The Loop</h2>
+    <p>
+        If you're here early, you're not lucky.
+        <br>
+        You're aligned.
+    </p>
 
-  <section>
-    <h2>What is $LOOP?</h2>
-    <p>It goes up. It goes down. It goes up again. Forever.</p>
-  </section>
+    <div class="feed">
+        <div class="feed-item">“Nobody wants to look stupid being early.”</div>
+        <div class="feed-item">“This is not hype. This is gravity.”</div>
+        <div class="feed-item">“You don’t join. You get pulled in.”</div>
+    </div>
+</div>
 
-  <section>
-    <h2>Tokenomics</h2>
-    <p>100% vibes — 0% logic — infinite loop</p>
-  </section>
+<div class="footer">
+    SLOOP © 2026 — No exit
+</div>
 
-  <section>
-    <h2>Roadmap</h2>
-    <p>Launch → Pump → Dump → Repeat 🔁</p>
-  </section>
-
-  <div class="marquee">
-    <span>🔁 BUY LOOP 🔁 HOLD LOOP 🔁 BECOME LOOP 🔁 REPEAT 🔁</span>
-  </div>
-
-  <footer>
-    <p>© 2026 $LOOP — There is no exit.</p>
-  </footer>
-
-  <script>
-    // Fake price movement
-    let price = 0.0001;
-
-    function updatePrice() {
-      let change = (Math.random() - 0.5) * 0.00005;
-      price += change;
-
-      if (price < 0.00001) price = 0.00001;
-
-      document.getElementById("price").innerText =
-        "$LOOP Price: $" + price.toFixed(6);
-    }
-
-    setInterval(updatePrice, 1000);
-  </script>
+<script>
+function enterLoop() {
+    alert("You're already in.");
+}
+</script>
 
 </body>
 </html>
